@@ -124,5 +124,10 @@ gitlab_rails['redis_sentinels'] = [
 high_availability['mountpoint'] = '{{ gitlab_high_availability_mountpoint }}'
 {% endif %}
 
+{% if gitlab_prometheus_endpoint %}
+# Gitlab Prometheus configuration
+prometheus['listen_address'] = '{{ gitlab_prometheus_endpoint }}:9090'
+{% endif %}
+
 # To change other settings, see:
 # https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#changing-gitlab-yml-settings
