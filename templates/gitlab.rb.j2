@@ -127,6 +127,7 @@ high_availability['mountpoint'] = '{{ gitlab_high_availability_mountpoint }}'
 {% if gitlab_prometheus_endpoint %}
 # Gitlab Prometheus configuration
 prometheus['listen_address'] = '{{ gitlab_prometheus_endpoint }}:9090'
+gitlab_monitor['enable'] = true
 {% endif %}
 
 # To change other settings, see:
