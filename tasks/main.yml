@@ -99,6 +99,7 @@
     - { mountpoint: "/var/opt/gitlab-rails/shared", source: "{{ gitlab_nfs_host }}:/export/shared" }
     - { mountpoint: "/var/opt/gitlab-ci/builds", source: "{{ gitlab_nfs_host }}:/export/builds" }
     - { mountpoint: "/var/opt/gitlab/backups", source: "{{ gitlab_nfs_host }}:/export/backups" }
+    - { mountpoint: "/var/opt/gitlab/registry", source: "{{ gitlab_nfs_host }}:/export/registry" }
   become: true
   when: gitlab_high_availability
 
