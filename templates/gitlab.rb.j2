@@ -130,5 +130,23 @@ prometheus['listen_address'] = '{{ gitlab_prometheus_endpoint }}:9090'
 gitlab_monitor['enable'] = true
 {% endif %}
 
+{% if gitlab_registry_enable %}
+# Gitlab Docker Registry configuration
+registry_external_url '{{ gitlab_registry_external_url }}'
+registry['enable'] = {{ gitlab_registry_enable }}
+gitlab_rails['gitlab_default_projects_features_container_registry'] = false
+gitlab_rails['registry_path'] = "{{ gitlab_registry_path }}"
+registry_nginx['enable'] = true
+registry_nginx['listen_port'] = 4567
+registry_nginx['listen_https'] = false
+registry_nginx['proxy_set_headers'] = {
+    "Host" => "$http_host",
+    "X-Real-IP" => "$remote_addr",
+    "X-Forwarded-For" => "$proxy_add_x_forwarded_for",
+    "X-Forwarded-Proto" => "https",
+    "X-Forwarded-Ssl" => "on"
+}
+{% endif %}
+
 # To change other settings, see:
 # https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#changing-gitlab-yml-settings

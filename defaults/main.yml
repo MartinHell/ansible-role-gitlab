@@ -115,3 +115,8 @@ gitlab_high_availability: false
 
 # A network mounted mountpoint for the data directory needs to be set
 # gitlab_high_availability_mountpoint: '/var/opt/gitlab/git-data'
+
+# Gitlab Registry configurations
+#gitlab_registry_enable: "true"
+#gitlab_registry_external_url: "https://your.domain.tld:4567"
+#gitlab_registry_path: "/path/to/registry"
