@@ -7,12 +7,6 @@
   become: true
   register: secrets_copied
 
-- name: add skip-auto-migrations on slave
-  file:
-    path: /etc/gitlab/skip-auto-migrations
-    state: touch
-  become: true
-
 - name: Reconfigure GitLab (Secrets arrived).
   command: gitlab-ctl reconfigure
   when: secrets_copied

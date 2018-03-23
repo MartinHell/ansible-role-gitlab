@@ -6,6 +6,12 @@
     dest: /tmp
   become: true
 
+- name: add skip-auto-migrations on master
+  file:
+    path: /etc/gitlab/skip-auto-migrations
+    state: touch
+  become: true
+
 - name: fetch ssh keys from master
   fetch:
     src: /etc/ssh/{{ item }}
