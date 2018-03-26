@@ -11,6 +11,11 @@ gitlab_ssh_port: 22
 gitlab_redirect_http_to_https: "true"
 gitlab_ssl_certificate: "/etc/gitlab/ssl/gitlab.crt"
 gitlab_ssl_certificate_key: "/etc/gitlab/ssl/gitlab.key"
+# Copy certificates to node (path to certificate on ansible node)
+#gitlab_certs:
+#  - "/path/to/key"
+#  - "/path/to/cert"
+
 
 # SSL Self-signed Certificate Configuration.
 gitlab_create_self_signed_cert: "true"

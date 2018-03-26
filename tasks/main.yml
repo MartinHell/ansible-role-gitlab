@@ -55,6 +55,17 @@
   when: gitlab_create_self_signed_cert
   become: true
 
+- name: Install Gitlab Certificates
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/gitlab/ssl/{{ item | basename }}"
+    owner: root
+    group: root
+    mode: 0600
+  with_items: "{{ gitlab_certs }}"
+  when: gitlab_certs
+  become: true
+
 - name: Create self-signed certificate.
   command: >
     openssl req -new -nodes -x509 -subj "{{ gitlab_self_signed_cert_subj }}" -days 3650 -keyout {{ gitlab_ssl_certificate_key }} -out {{ gitlab_ssl_certificate }} -extensions v3_ca
