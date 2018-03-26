@@ -125,3 +125,9 @@ gitlab_high_availability: false
 #gitlab_registry_enable: "true"
 #gitlab_registry_external_url: "https://your.domain.tld:4567"
 #gitlab_registry_path: "/path/to/registry"
+#gitlab_registry_nginx_proxy_headers: 
+#  - { header: "Host", value: "$http_host" }
+#  - { header: "X-Real-IP", value: "$remote_addr" }
+#  - { header: "X-Forwarded-For", value: "$proxy_add_x_forwarded_for" }
+#  - { header: "X-Forwarded-Proto", value: "https" }
+#  - { header: "X-Forwarded-Ssl", value: "on" }
