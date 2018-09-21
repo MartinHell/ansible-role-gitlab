@@ -137,8 +137,8 @@ registry['enable'] = {{ gitlab_registry_enable }}
 gitlab_rails['gitlab_default_projects_features_container_registry'] = false
 gitlab_rails['registry_path'] = "{{ gitlab_registry_path }}"
 registry_nginx['enable'] = true
-registry_nginx['listen_port'] = "{{ gitlab_registry_listen_port }}"
-registry_nginx['listen_https'] = "{{ gitlab_registry_https }}"
+registry_nginx['listen_port'] = {{ gitlab_registry_listen_port }}
+registry_nginx['listen_https'] = {{ gitlab_registry_https }}
 {% if gitlab_registry_nginx_proxy_headers %}
 registry_nginx['proxy_set_headers'] = {
 {% for headers in gitlab_registry_nginx_proxy_headers %}
