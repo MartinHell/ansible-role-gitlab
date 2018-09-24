@@ -137,5 +137,9 @@ gitlab_registry_https: "false"
 
 # Gitlab Mattermost configurations
 #gitlab_mattermost_external_url: 'http://mattermost.example.com'
+gitlab_mattermost_nginx_ssl: false
+gitlab_mattermost_external_db: false
+#gitlab_mattermost_sql_driver: 'postgres'
+#gitlab_mattermost_sql_data_source: "user=mattermost host=<hostname of DB server> port=5432 dbname=mattermost password=<password>"
 #gitlab_mattermost_nginx_ssl_crt: '/path/to/cert'
 #gitlab_mattermost_nginx_ssl_key: '/path/to/key'

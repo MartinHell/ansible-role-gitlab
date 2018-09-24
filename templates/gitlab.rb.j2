@@ -152,10 +152,14 @@ node_exporter['listen_address'] = '{{ gitlab_node_exporter_listen_address | defa
 
 {% if gitlab_mattermost_external_url %}
 mattermost_external_url '{{ gitlab_mattermost_external_url }}'
-{% if gitlab_mattermost_nginx_ssl_crt %}
+{% if gitlab_mattermost_nginx_ssl %}
 mattermost_nginx['redirect_http_to_https'] = true
 mattermost_nginx['ssl_certificate'] = "{{ gitlab_mattermost_nginx_ssl_crt }}"
 mattermost_nginx['ssl_certificate_key'] = "{{ gitlab_mattermost_nginx_ssl_key }}"
+{% endif %}
+{% if gitlab_mattermost_external_db %}
+mattermost['sql_driver_name'] = '{{ gitlab_mattermost_sql_driver }}'
+mattermost['sql_data_source'] = '{{ gitlab_mattermost_sql_data_source }}'
 {% endif %}
 {% endif %}
 
