@@ -134,3 +134,8 @@ gitlab_registry_https: "false"
 #  - { header: "X-Forwarded-For", value: "$proxy_add_x_forwarded_for" }
 #  - { header: "X-Forwarded-Proto", value: "https" }
 #  - { header: "X-Forwarded-Ssl", value: "on" }
+
+# Gitlab Mattermost configurations
+#gitlab_mattermost_external_url: 'http://mattermost.example.com'
+#gitlab_mattermost_nginx_ssl_crt: '/path/to/cert'
+#gitlab_mattermost_nginx_ssl_key: '/path/to/key'
