@@ -149,13 +149,18 @@ registry_nginx['proxy_set_headers'] = {
 {% endif %}
 
 {% if gitlab_mattermost_external_url %}
+gitlab_rails['mattermost_host'] = '{{ gitlab_mattermost_external_url }}'
 mattermost_external_url '{{ gitlab_mattermost_external_url }}'
+mattermost['enable'] = true
+mattermost_nginx['enable'] = true
+mattermost['gitlab_enable'] = true
 {% if gitlab_mattermost_nginx_ssl %}
 mattermost_nginx['redirect_http_to_https'] = true
 mattermost_nginx['ssl_certificate'] = "{{ gitlab_mattermost_nginx_ssl_crt }}"
 mattermost_nginx['ssl_certificate_key'] = "{{ gitlab_mattermost_nginx_ssl_key }}"
 {% endif %}
 {% if gitlab_mattermost_external_db %}
+mattermost['database_name'] = '{{ gitlab_mattermost_db_name }}'
 mattermost['sql_driver_name'] = '{{ gitlab_mattermost_sql_driver }}'
 mattermost['sql_data_source'] = '{{ gitlab_mattermost_sql_data_source }}'
 {% endif %}
