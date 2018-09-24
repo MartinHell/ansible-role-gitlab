@@ -63,7 +63,7 @@
     group: root
     mode: 0600
   with_items: "{{ gitlab_certs }}"
-  when: gitlab_certs
+  when: gitlab_certs is defined
   become: true
 
 - name: Create self-signed certificate.
