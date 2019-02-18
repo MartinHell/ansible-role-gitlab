@@ -166,5 +166,7 @@ mattermost['sql_data_source'] = '{{ gitlab_mattermost_sql_data_source }}'
 {% endif %}
 {% endif %}
 
+node_exporter['listen_address'] = '{{ gitlab_node_exporter_listen_address | default("localhost:9100") }}'
+
 # To change other settings, see:
 # https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md#changing-gitlab-yml-settings
