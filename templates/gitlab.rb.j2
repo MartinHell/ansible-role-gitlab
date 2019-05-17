@@ -28,8 +28,10 @@ git_data_dirs({
 })
 
 # The directory where Gitlab stores uploads
+{% if gitlab_upload_path_dir is defined %}
 gitlab_rails['uploads_storage_path'] = "{{ gitlab_upload_path_dir }}"
 gitlab_rails['uploads_base_dir'] = "{{ gitlab_upload_base_dir }}"
+{% endif %}
 
 # The directory where Gitlab backups will be stored
 gitlab_rails['backup_path'] = "{{ gitlab_backup_path }}"
