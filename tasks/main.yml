@@ -107,7 +107,7 @@
   with_items:
     - { mountpoint: "/var/opt/gitlab/git-data", source: "{{ gitlab_nfs_host }}:/export/git" }
     - { mountpoint: "/var/opt/gitlab/.ssh", source: "{{ gitlab_nfs_host }}:/export/ssh" }
-    - { mountpoint: "/var/opt/gitlab-rails/uploads", source: "{{ gitlab_nfs_host }}:/export/uploads" }
+    - { mountpoint: "/var/opt/gitlab/gitlab-rails/uploads", source: "{{ gitlab_nfs_host }}:/export/uploads" }
     - { mountpoint: "/var/opt/gitlab-rails/shared", source: "{{ gitlab_nfs_host }}:/export/shared" }
     - { mountpoint: "/var/opt/gitlab-ci/builds", source: "{{ gitlab_nfs_host }}:/export/builds" }
     - { mountpoint: "/var/opt/gitlab/backups", source: "{{ gitlab_nfs_host }}:/export/backups" }
